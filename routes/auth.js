@@ -1,15 +1,20 @@
 import { Router } from 'express'
-import * as authCtrl from '../controllers/auth.js'
-import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
+import passport from 'passport'
 
 const router = Router()
 
-/*---------- Public Routes ----------*/
-router.post('/signup', authCtrl.signup)
-router.post('/login', authCtrl.login)
+router.post("/google", passport.authenticate("google-one-tap", {
+  failureRedirect: "/",
+  successRedirect: "/",
+}))
 
-/*---------- Protected Routes ----------*/
-router.use(decodeUserFromToken)
-router.post('/change-password', checkAuth, authCtrl.changePassword)
+router.get('/logout', function (req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err)}
+    res.redirect('/')
+  })
+})
 
-export { router }
+export {
+  router
+}

@@ -1,22 +1,19 @@
-# Decoupled MERN Stack with JWT Auth Template - Back End
+# MEN Stack with OAuth Template
 
-This is the back end of a decoupled MERN Stack app that includes JWT Authentication.
-
-When combined with the front end found [here](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end), you'll have all you need to build a full stack MERN app!
+This is a MEN Stack template that includes OAuth.
 
 Use this to go build things! 🚀
 
 ## To Use This Template
 
-**Replace `<name-of-your-app-here>` in the commands below with the name of your app!**
+__Replace `<name-of-your-app-here>` in the commands below with the name of your app!__
 
 ```bash
-git clone https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end <name-of-your-app-here>-back-end
-cd <name-of-your-app-here>-back-end
-code .
+git clone https://github.com/SEI-Remote/men-stack-oauth-template.git <name-of-your-app-here>
+cd <name-of-your-app-here>
 ```
 
-With the project open in VS Code, open a terminal and run:
+Once you are in the project directory:
 
 ```bash
 rm -rf .git
@@ -32,11 +29,7 @@ Re-initialize a git repository:
 git init
 ```
 
-Create a repo for this project on GitHub and add that remote to your project with:
-
-```bash
-git remote add origin your-repo-URL-here
-```
+Create a repo for this project on GitHub and add that remote to your project with `git remote add origin Your-repo-URL-here`.
 
 Run npm i to fetch the template's dependencies:
 
@@ -54,20 +47,19 @@ Fill it with the following:
 
 ```
 DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-CLOUDINARY_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+GOOGLE_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+GOOGLE_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+SESSION_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Replace the `DATABASE_URL`, `SECRET`, and `CLOUDINARY_URL` with values that you provide.
+Replace the `DATABASE_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_SECRET`, and `SESSION_SECRET` with values that you provide.
 
-> 🚨 Place secrets in this `.env` file. The contents of this file WILL NOT be exposed to site visitors.
-
-Delete this README.md, then make an initial commit:
+Delete this `README.md` file and finally, make an initial commit:
 
 ```bash
 git add .
 git commit -m "initial commit"
-git push origin main
+git push -u origin main
 ```
 
 You're done!
