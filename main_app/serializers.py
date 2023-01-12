@@ -10,12 +10,12 @@ class MessageSerializer(serializers.ModelSerializer):
 class ManagerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Manager
-        fields = ('name', 'phone', 'bio')
+        fields = ('phone', 'bio')
 
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
-        fields = ('name', 'address', 'phone', 'p_manager')
+        fields = ('address', 'phone', 'p_manager')
 
 class TaskSerializer(serializers.ModelSerializer):
     image_url = serializers.ImageField(required=False)

@@ -14,12 +14,10 @@ class Message(models.Model):
   image_url = models.ImageField(upload_to=upload_to, blank=True, null=True)
 
 class Manager(User):
-  name = models.CharField(max_length=50)
   phone = models.CharField(max_length=10)
   bio = models.TextField()
 
 class Client(User):
-  name = models.CharField(max_length=50)
   address = models.CharField(max_length=100)
   phone = models.CharField(max_length=10)
   p_manager = models.ForeignKey(Manager, on_delete=models.CASCADE)
