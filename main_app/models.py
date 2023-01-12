@@ -3,24 +3,34 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Profile(models.Model):
-  user = models.ForeignKey(
-    User,
-    #unique setting for one-to-one relationship
-    unique=True,
-    on_delete=models.CASCADE,
-  )
+class Message(models.Model):
+  author = models.ForeignKey(User, on_delete=models.CASCADE)
+  recipient = models.ForeignKey(User, on_delete=models.CASCADE)
+  sent = models.DateTimeField(auto_now_add=True)
+  text = models.TextField()
+  image = models.ImageField()
+
+class Manager(User):
+  name = models.CharField(max_length=50)
+  phone = models.CharField(max_length=10)
+  bio = models.TextField()
+
+class Client(User):
   name = models.CharField(max_length=50)
   address = models.CharField(max_length=100)
-  is_manager = models.BooleanField()
-  tasks = models.ManyToOneRel()
-
+  phone = models.CharField(max_length=10)
+  manager = models.ForeignKey(Manager, on_delete=models.CASCADE)
 
 class Task(models.Model):
-  name = models.CharField(max_length=200)
-  client = models.ForeignKey(
-    User, 
-    #one-to-many
-    on_delete=models.CASCADE,
-  )
-  
+  client = models.ForeignKey(Client, on_delete=models.CASCADE)
+  details = models.TextField()
+  image = models.ImageField()
+  completed = models.BooleanField()
+
+class Action(models.Model):
+  task = models.ForeignKey(Task, on_delete=models.CASCADE)
+  start_time = models.DateTimeField(auto_now_add=True)
+  details = models.TextField()
+  image = models.ImageField()   #finish setup for image upload! article online ;)
+  time_spent = models.DurationField()
+
