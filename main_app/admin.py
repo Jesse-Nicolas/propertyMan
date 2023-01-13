@@ -7,10 +7,10 @@ class MessageAdmin(admin.ModelAdmin):
   list_display = ('author', 'recipient', 'sent', 'text', 'image_url')
 
 class ManagerAdmin(admin.ModelAdmin):
-  list_display = ('phone', 'bio')
+  list_display = ('username', 'first_name', 'last_name', 'email', 'phone', 'bio')
 
 class ClientAdmin(admin.ModelAdmin):
-  list_display = ('address', 'phone', 'p_manager')
+  list_display = ('username', 'first_name', 'last_name', 'email', 'address', 'phone', 'p_manager')
 
 class TaskAdmin(admin.ModelAdmin):
   list_display = ('client', 'details', 'image_url', 'completed')

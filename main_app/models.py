@@ -27,6 +27,7 @@ class Task(models.Model):
   details = models.TextField()
   image_url = models.ImageField(upload_to=upload_to, blank=True, null=True)
   completed = models.BooleanField()
+  added = models.DateTimeField(auto_now_add=True)
 
 class Action(models.Model):
   task = models.ForeignKey(Task, on_delete=models.CASCADE)
