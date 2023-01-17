@@ -33,6 +33,6 @@ class Action(models.Model):
   task = models.ForeignKey(Task, on_delete=models.CASCADE)
   start_time = models.DateTimeField(auto_now_add=True)
   details = models.TextField()
-  image_url = models.ImageField(upload_to=upload_to, blank=True, null=True)   #finish setup for image upload! article online ;)
+  image_url = models.ImageField(upload_to=upload_to, blank=True, null=True)
   time_spent = models.DurationField()
 

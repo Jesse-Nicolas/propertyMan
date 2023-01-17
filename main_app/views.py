@@ -4,9 +4,17 @@ from .models import Message, Manager, Client, Task, Action
 from .serializers import MessageSerializer, ManagerSerializer, ClientSerializer, TaskSerializer, ActionSerializer
 from rest_framework import permissions
 from rest_framework.parsers import MultiPartParser, FormParser
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from dj_rest_auth.registration.views import SocialLoginView
+
 
 
 # Create your views here.
+
+class GoogleLogin(SocialLoginView):
+    authentication_classes = []
+    adapter_class = GoogleOAuth2Adapter
+
 class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.order_by('-sent')
     serializer_class = MessageSerializer

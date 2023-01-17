@@ -31,5 +31,6 @@ router.register(r'actions', views.ActionViewSet), 'actions'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('google/', views.GoogleLogin.as_view(), name='google_login'),
     path('api/', include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
